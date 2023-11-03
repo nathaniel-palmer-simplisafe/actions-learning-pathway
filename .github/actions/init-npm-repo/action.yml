@@ -1,0 +1,14 @@
+name: init-npm-repo
+description: "Checkout and install dependencies for an npm project"
+runs:
+  using: composite
+  steps: 
+    - name: Check out repository code
+      uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+    - name: Install dependencies
+      run: npm install
+      shell: bash
