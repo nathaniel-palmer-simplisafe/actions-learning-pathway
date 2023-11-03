@@ -1,5 +1,9 @@
 name: init-npm-repo
 description: "Checkout and install dependencies for an npm project"
+inputs:
+  node-version:
+    description: "Node.js version to use"
+    required: true
 runs:
   using: composite
   steps: 
@@ -8,7 +12,7 @@ runs:
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18.x'
+        node-version: ${{ inputs.node-version }}
     - name: Install dependencies
       run: npm install
       shell: bash
